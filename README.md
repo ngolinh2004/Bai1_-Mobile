@@ -3,9 +3,9 @@
 1. Đăng ký domain xịn (có thể dùng của mắt bão, tên miền *.id.vn đang miễn phí cho mọi công dân việt nam <= 23 tuổi, *.io.vn : giá 30k vnđ/năm)
    <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/40fe05f5-bf9a-4c7c-ae67-42a49b501f0c" />
 
-3. Đăng ký tài khoản cloudflare
-4. Thêm domain đã đăng ký vào trong cloudflare : Nhận 2 dòng namespace
-5. Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
+2. Đăng ký tài khoản cloudflare
+3. Thêm domain đã đăng ký vào trong cloudflare : Nhận 2 dòng namespace
+4. Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
 ## B. Cài đặt Ubuntu + Docker
 1. Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
 - Sử dụng một trong các công cụ để giả lập: HyperV (có sẵn của windows), VirutualBox (Miễn phí), VM_Ware (bản quyền)
