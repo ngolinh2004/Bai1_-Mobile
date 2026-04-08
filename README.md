@@ -1,10 +1,10 @@
 # Môn: Phát triển ứng dụng với mã nguồn mở-TEE0421
-A. Đăng ký tên miền xịn cho cá nhân:
+## A. Đăng ký tên miền xịn cho cá nhân:
 1. Đăng ký domain xịn (có thể dùng của mắt bão, tên miền *.id.vn đang miễn phí cho mọi công dân việt nam <= 23 tuổi, *.io.vn : giá 30k vnđ/năm)
 2. Đăng ký tài khoản cloudflare
 3. Thêm domain đã đăng ký vào trong cloudflare : Nhận 2 dòng namespace
 4. Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
-B. Cài đặt Ubuntu + Docker
+## B. Cài đặt Ubuntu + Docker
 1. Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
 - Sử dụng một trong các công cụ để giả lập: HyperV (có sẵn của windows), VirutualBox (Miễn phí), VM_Ware (bản quyền)
 - Download file iso để cài đặt.
@@ -31,7 +31,7 @@ B. Cài đặt Ubuntu + Docker
 5. Cấu hình để docker chạy mà không cần tiền tố sudo
 6. Tìm hiểu tập lệnh của docker và docker compose
 7. Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
-C. Cấu hình docker compose:
+## C. Cấu hình docker compose:
 1. Tạo thư mục: ~/myapp
 2. Chuyển vào trong thư mục ~/myapp
 3. Tạo thư mục: ./myweb
@@ -49,7 +49,7 @@ C. Cấu hình docker compose:
 7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập
 Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình trong thư mục ./nodered, sau đó mới tiến hành sửa settings.js và restart lại container
 
-D. (Bonus - không bắt buộc)
+## D. (Bonus - không bắt buộc)
 1. tạo thư mục ./myapi
 2. tạo file ./myapi/app.py sử dụng Python + Flask để làm gì đó funny
 3. tạo file ./myapi/requirements.txt chứa các thư viện mà app.py sử dụng (theo như app.py ví dụ thì requirements.txt chỉ cần có nội dung: flask)
@@ -83,7 +83,7 @@ E. Triển khai (level test) ứng dụng
 4. Kiểm tra kiểm thử các service đang chạy độc lập thông qua ip và port của nó: ví dụ mở trình duyệt ip_ubuntu:1880 để check nodered đã chạy chưa
 5. Sử dụng nodered: kéo nodered http_in , http_response, function : để tạo api get đơn giản (dùng cho /api proxy_pass của nginx)
 6. Sửa file ./myweb/index.html : thêm code html+js để sử dụng được api đã khai báo proxy_pass (thực ra là sử dụng nodered http_in hoặc sử dụng service myapi)
-F. Gỡ lỗi:
+## F. Gỡ lỗi:
 1. nếu có lỗi xẩy ra trong quá trình triển khai docker compose up -d
 - Kiểm tra nhanh: docker compose ps giúp biết container nào đang chạy xem log, ví dụ: docker logs mynginx docker logs myapi
 
@@ -117,7 +117,7 @@ myapp/
 
 - Sơ đồ theo góc nhìn ngược lại:
 
-G. Câu hỏi về bài làm?
+## G. Câu hỏi về bài làm?
 1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
 2. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
 3. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
