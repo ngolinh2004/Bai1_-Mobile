@@ -143,114 +143,81 @@ Vì Nginx đóng vai trò Reverse Proxy, còn Node-RED chỉ là công cụ xử
 - Mount file là việc ánh xạ một file cụ thể từ máy host vào container. Khi đó, container chỉ truy cập và sử dụng đúng file đó. Cách này thường dùng cho các file cấu hình (ví dụ như nginx.conf) để đảm bảo container chạy theo cấu hình đã định sẵn.
 - Mount thư mục là việc ánh xạ toàn bộ một thư mục từ máy host vào container. Khi đó, tất cả các file bên trong thư mục sẽ được chia sẻ và đồng bộ giữa host và container. Cách này thường dùng cho dữ liệu hoặc mã nguồn (ví dụ như thư mục chứa website) để khi thay đổi trên máy host thì container cập nhật ngay
   
-4. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
-5. docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
-6. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
-7. Tìm cách đưa Cloudflare Token vào trong file .env rồi sau đó thêm .env vào file .gitignore trước khi push code lên github. Tại sao nói đây là điều quan trọng về bảo mật mã nguồn?
-8. Tại sao chúng ta nên thêm hậu tố :ro khi mount file cấu hình Nginx?
-9. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng cho các service nữa không?
-Hướng dẫn làm bài:
-1. sv tự làm trên laptop cá nhân, tự nâng cấp các phần mềm hoặc OS lên phiên bản phù hợp, trang bị cấu hình đủ tải (RAM từ 8GB, ổ cứng SSD or NVME)
-2. quá trình làm: chụp màn hình, paste hình ảnh + gõ text chú thích cho hình ảnh vào readme.md của 1 repo trên github cá nhân, để truy cập public
-3. Mỗi phần ABCDEFG tạo 1 file tương ứng là A.md , B.md .... file README.md chứa link tới các file A.md, B.md, ... để dễ quản lý
-4. Mỗi file cho mỗi phần chứa nội dung đã làm: hình ảnh + text thuyết minh (lặp nhiều lần) cho phần đó.
-5. làm xong tất cả: paste link của repo vào file tổng hợp excel online (làm sau cũng được, vì github ko fake date được)
-link gửi bài: https://docs.google.com/spreadsheets/d/1zftQMj748nRpS-_br4_jdHZocNVvo848zqxCGcTy4uU/edit?gid=0#gid=0
+3. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
 
-Tham khảo file trên lớp
-./docker-compose.yml :
+- CÓ : thay đổi ngay lập tức
+- Vì:
+  + Docker sử dụng volume (mount)
+  + File trên máy Ubuntu = file trong container
+    
+4. docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
 
-	 services:
-	  myapi:
-	    build:
-	      context: ./myapi
-	      dockerfile: Dockerfile
-	    container_name: myapi
-	    ports:
-	      - "9630:9630"
-	    restart: always
+* restart: always
+  - Container luôn tự chạy lại
+  - Kể cả khi:
+     + bị crash
+     + reboot máy
 
-	  mynodered:
-	    image: nodered/node-red
-	    container_name: mynodered
-	    restart: unless-stopped
-	    ports:
-	      - "1880:1880"
-	    volumes:
-	      # đường dẫn thư mục trên máy của bạn
-	      - ./nodered:/data
+* restart: unless-stopped
+  - Chạy lại trừ khi bạn stop thủ công
+    
+5. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
 
-	  mycloudflared:
-	    image: cloudflare/cloudflared:latest
-	    container_name: mycloudflared
-	    restart: unless-stopped
-	    command: tunnel --no-autoupdate run --token <your_token>
+* Cách khai báo :
+  - Bước 1: Khai báo network ở cuối file:
+    
+    networks:
+    
+     mynetwork:
+  - Bước 2: Gán network cho từng service:
+    
+    networks:
+    
+      - mynetwork
+* Lợi ích :
+  - Giao tiếp giữa các container dễ dàng : Các service có thể gọi nhau bằng tên service
+  - Tăng bảo mật
+    + Chỉ các container trong cùng network mới truy cập được nhau
+    + Không bị lộ ra bên ngoài
+  - Dễ quản lý và mở rộng
+    + Không cần nhớ địa chỉ IP
+    + Khi thêm service mới chỉ cần gán vào network
+  - Ổn định hơn
+    + Docker tự quản lý kết nối nội bộ
+    + Tránh lỗi thay đổi IP
+      
+6. Tìm cách đưa Cloudflare Token vào trong file .env rồi sau đó thêm .env vào file .gitignore trước khi push code lên github. Tại sao nói đây là điều quan trọng về bảo mật mã nguồn?
 
-	  mynginx:
-	    image: nginx
-	    container_name: mynginx
-	    restart: always
-	    ports:
-	      - "80:80"
-	      - "443:443"
-	    volumes:
-	      # Ánh xạ thư mục chứa file bài thơ
-	      - ./myweb:/myweb:ro
-	      # Ánh xạ file cấu hình nginx
-	      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-./nginx/nginx.conf :
+* Cách thực hiện
+  - Bước 1: Tạo file .env
+  - Bước 2: Sử dụng trong docker-compose.yml
+  - Bước 3: Thêm .env vào .gitignore
+* Tại sao điều này quan trọng về bảo mật?
 
-events {}
-http {
-	server {
-	    listen 80;
-	    server_name thotinh.tdh.io.vn;
+  - Vì Cloudflare Token thuộc Cloudflare là thông tin nhạy cảm, có quyền truy cập vào hệ thống.
+    
+7. Tại sao chúng ta nên thêm hậu tố :ro khi mount file cấu hình Nginx?
+* Lý do nên sử dụng
+  - Bảo vệ file cấu hình
+    + Tránh việc container hoặc ứng dụng bên trong tự ý thay đổi cấu hình
+    + Giữ cấu hình luôn đúng như thiết lập ban đầu
+  - Tăng bảo mật
+    + Nếu container bị tấn công, kẻ xấu cũng không thể sửa file cấu hình
+    + Giảm nguy cơ bị chèn mã độc hoặc thay đổi cấu hình server
+  - Đảm bảo tính ổn định
+    + Tránh lỗi do ghi đè file cấu hình
+    + Hệ thống hoạt động ổn định hơn
+  - Kiểm soát tốt hơn từ phía host
+    + Mọi thay đổi phải thực hiện từ máy Ubuntu (host)
+    + Dễ quản lý và kiểm soát phiên bản cấu hình
+8. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng cho các service nữa không?
 
-	    location / {
-	        root /myweb;
-	        index index.html index.htm;
-	        try_files $uri $uri/ =404;
-	    }
+- Khi sử dụng Cloudflare Tunnel của Cloudflare, không cần thiết phải mở cổng (port) cho các service trên server.
 
-	    location /api {
-	        # 'myapi' là tên container trong docker-compose
-	        proxy_pass http://myapi:9630/tinh-vat;
-	        proxy_set_header Host $host;
-	        proxy_set_header X-Real-IP $remote_addr;
-	        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	        proxy_set_header X-Forwarded-Proto $scheme;
-	    }
-	}
-}
-./myapp/app.py :
-
-	from flask import Flask, request, jsonify
-
-	app = Flask(__name__)
-
-	@app.route('/tinh-vat', methods=['GET'])
-	def tinh_vat():
-	    # Lấy giá trị từ tham số "tien" trên URL
-	    tien_input = request.args.get('tien')
-	    
-	    # Kiểm tra xem người dùng có nhập tiền hay không
-	    if tien_input is None:
-	        return jsonify({"error": "Vui lòng cung cấp tham số 'tien'"}), 400
-	    
-	    try:
-	        # Chuyển đổi sang kiểu số thực và tính toán
-	        so_tien = float(tien_input)
-	        ket_qua = so_tien * 1.1
-	        
-	        return jsonify({
-	            "so_tien_goc": so_tien,
-	            "thue_vat": "10%",
-	            "tong_cong": ket_qua
-	        })
-	    except ValueError:
-	        # Trả về lỗi nếu đầu vào không phải là số
-	        return jsonify({"error": "Giá trị 'tien' phải là một con số hợp lệ"}), 400
-
-	if __name__ == '__main__':
-	    # Chạy ứng dụng tại cổng 9630
-	    app.run(host='0.0.0.0', port=9630)
+* Giải thích
+  
+Thông thường, khi triển khai web:
+  - Ta phải mở các cổng như:
+    + 80 (HTTP)
+    + 443 (HTTPS)
+  - Để người dùng từ Internet có thể truy cập trực tiếp vào server
