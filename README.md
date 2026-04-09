@@ -125,16 +125,18 @@ myapp/
     Nginx đóng vai trò Reverse Proxy, còn Node-RED chỉ là công cụ xử lý logic.
 
 🔹 Lý do:
+
 - Node-RED không tối ưu để public trực tiếp ra Internet
 - Không hỗ trợ:
-+ quản lý nhiều route (/, /api, /admin)
-+ caching
-+ bảo mật nâng cao
+  + quản lý nhiều route (/, /api, /admin)
+  + caching
+  + bảo mật nâng cao
 🔹 Nginx làm được:
+
 - Điều hướng request:
-+ / → web tĩnh
-+ /api → Node-RED / Flask
--mẨn backend (Node-RED không bị lộ)
+  + / → web tĩnh
+  + /api → Node-RED / Flask
+- Ẩn backend (Node-RED không bị lộ)
 - Tăng hiệu năng và bảo mật
 3. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
 4. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
