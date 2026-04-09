@@ -122,7 +122,7 @@ myapp/
 ## G. Câu hỏi về bài làm?
 1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
 
-    Nginx đóng vai trò Reverse Proxy, còn Node-RED chỉ là công cụ xử lý logic.
+Vì Nginx đóng vai trò Reverse Proxy, còn Node-RED chỉ là công cụ xử lý logic.
 
 🔹 Lý do:
 
@@ -138,7 +138,11 @@ myapp/
   + /api → Node-RED / Flask
 - Ẩn backend (Node-RED không bị lộ)
 - Tăng hiệu năng và bảo mật
-3. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
+2. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
+  
+- Mount file là việc ánh xạ một file cụ thể từ máy host vào container. Khi đó, container chỉ truy cập và sử dụng đúng file đó. Cách này thường dùng cho các file cấu hình (ví dụ như nginx.conf) để đảm bảo container chạy theo cấu hình đã định sẵn.
+- Mount thư mục là việc ánh xạ toàn bộ một thư mục từ máy host vào container. Khi đó, tất cả các file bên trong thư mục sẽ được chia sẻ và đồng bộ giữa host và container. Cách này thường dùng cho dữ liệu hoặc mã nguồn (ví dụ như thư mục chứa website) để khi thay đổi trên máy host thì container cập nhật ngay
+  
 4. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
 5. docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
 6. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
