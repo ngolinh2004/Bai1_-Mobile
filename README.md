@@ -121,13 +121,28 @@ myapp/
 
 ## G. Câu hỏi về bài làm?
 1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
-2. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
-3. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
-4. docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
-5. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
-6. Tìm cách đưa Cloudflare Token vào trong file .env rồi sau đó thêm .env vào file .gitignore trước khi push code lên github. Tại sao nói đây là điều quan trọng về bảo mật mã nguồn?
-7. Tại sao chúng ta nên thêm hậu tố :ro khi mount file cấu hình Nginx?
-8. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng cho các service nữa không?
+
+    Nginx đóng vai trò Reverse Proxy, còn Node-RED chỉ là công cụ xử lý logic.
+
+🔹 Lý do:
+- Node-RED không tối ưu để public trực tiếp ra Internet
+- Không hỗ trợ:
++ quản lý nhiều route (/, /api, /admin)
++ caching
++ bảo mật nâng cao
+🔹 Nginx làm được:
+- Điều hướng request:
++ / → web tĩnh
++ /api → Node-RED / Flask
+-mẨn backend (Node-RED không bị lộ)
+- Tăng hiệu năng và bảo mật
+3. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
+4. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
+5. docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
+6. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
+7. Tìm cách đưa Cloudflare Token vào trong file .env rồi sau đó thêm .env vào file .gitignore trước khi push code lên github. Tại sao nói đây là điều quan trọng về bảo mật mã nguồn?
+8. Tại sao chúng ta nên thêm hậu tố :ro khi mount file cấu hình Nginx?
+9. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng cho các service nữa không?
 Hướng dẫn làm bài:
 1. sv tự làm trên laptop cá nhân, tự nâng cấp các phần mềm hoặc OS lên phiên bản phù hợp, trang bị cấu hình đủ tải (RAM từ 8GB, ổ cứng SSD or NVME)
 2. quá trình làm: chụp màn hình, paste hình ảnh + gõ text chú thích cho hình ảnh vào readme.md của 1 repo trên github cá nhân, để truy cập public
