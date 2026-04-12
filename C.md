@@ -32,10 +32,17 @@
     <img width="733" height="389" alt="{BB1A9BBD-9713-46A2-A956-42ED5E1CF60F}" src="https://github.com/user-attachments/assets/5509f90f-7634-4316-80ce-55c503927ebd" />
 
   - Ảnh kết quả :
-    
+    + Truy cập : http://192.168.136.128/
+      
       <img width="952" height="341" alt="{FB611126-077F-466B-8AD8-5E68AF519088}" src="https://github.com/user-attachments/assets/3b22bcab-8d08-4075-ac99-bf9c876e8c89" />
 
+    + http in (/hello) nối với function 1 nối với http response
+        
       <img width="958" height="413" alt="{30907F26-DFA9-48B1-BE7F-7E07C1877D8D}" src="https://github.com/user-attachments/assets/92fbc2bd-f111-460e-bbc3-6b486f27de74" />
+
+   + Truy cập: http://192.168.136.128:1880/hello
+
+     <img width="793" height="311" alt="{F81CBF63-9731-422D-97A7-15234A28692A}" src="https://github.com/user-attachments/assets/970aea8d-f37a-4a7b-938c-33efa32a5da6" />
 
 
 
