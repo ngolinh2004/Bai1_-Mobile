@@ -45,7 +45,35 @@
     <img width="602" height="117" alt="{437C2ECC-CD69-4A8F-8137-83CD1BF56E8B}" src="https://github.com/user-attachments/assets/eac2d730-4449-49e8-a257-63befe701b39" />
 
 3. Cài đặt docker cho Ubuntu
+   <img width="661" height="350" alt="{22BDA08F-7565-421E-9408-52ED47647243}" src="https://github.com/user-attachments/assets/22cdb423-4792-48ef-8b59-b9038d0f9a23" />
+
 4. Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
+
+   <img width="537" height="74" alt="{FF37BFEA-613B-4084-A653-BEE2A57E6659}" src="https://github.com/user-attachments/assets/23fba895-b454-49a6-b8be-e06c0ea65e51" />
+
 5. Cấu hình để docker chạy mà không cần tiền tố sudo
+
+   <img width="609" height="337" alt="{11858C75-1100-4A15-BC9C-DB20EAE6366B}" src="https://github.com/user-attachments/assets/33543f49-e9a0-4892-9e51-0c328d17e391" />
+
 6. Tìm hiểu tập lệnh của docker và docker compose
+  - Lệnh Docker
+    + docker --version: Kiểm tra phiên bản Docker
+    + docker run hello-world: Chạy container để kiểm tra Docker hoạt động
+    + docker ps: Xem các container đang chạy
+    + docker ps -a: Xem tất cả container (kể cả đã dừng)
+    + docker images: Xem danh sách các image
+    + docker pull nginx: Tải image từ Docker Hub
+    + docker logs <container_name>: Xem log của container
+    + docker stop <container_name>: Dừng container
+    + docker rm <container_name>: Xóa container
+  - Lệnh Docker Compose
+    + docker compose up -d: Chạy toàn bộ service trong file docker-compose.yml (chạy nền)
+    + docker compose down: Dừng và xóa toàn bộ dịch vụ
+    + docker compose ps: Xem trạng thái các container
+    + docker compose logs: Xem log các dịch vụ
+    + docker compose restart: Khởi động lại dịch vụ
+    + docker compose up -d --build: Build lại image và chạy lại container
+      
 7. Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
+
+<img width="564" height="314" alt="{3D633261-5828-488E-A7DA-65449009B890}" src="https://github.com/user-attachments/assets/a21f3b33-2927-4500-b87d-30b15e4d8c1f" />
