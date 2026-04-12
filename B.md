@@ -1,13 +1,13 @@
 ## B. Cài đặt Ubuntu + Docker
 1. Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
-  - Sử dụng một trong các công cụ để giả lập: HyperV (có sẵn của windows),   -     - VirutualBox (Miễn phí), VM_Ware (bản quyền)
+  - Sử dụng một trong các công cụ để giả lập: VM_Ware (bản quyền)
+    <img width="960" height="482" alt="{C13C4A6D-29C1-43D0-B8A2-9013269C9514}" src="https://github.com/user-attachments/assets/13f9a4a8-d1c9-4c83-b397-669e1b648f4a" />
+
   - Download file iso để cài đặt.
+    <img width="589" height="510" alt="{09A3B8F0-761D-4BA9-ABC7-61ECC6C2616F}" src="https://github.com/user-attachments/assets/d01f405d-da74-4dfe-b3b0-ab6938d6fac1" />
+
   - Cấu hình mạng trong Ubuntu (và công cụ giả lập) để cho phép truy cập SSH vào Ubuntu từ cmd của windows
-Ví dụ:
-để ssh tới ubuntu ở ip 192.168.100.123, user là admin thì mở CMD trên windows,
-gõ lệnh: ssh admin@192.168.100.123
-hệ thống sẽ yêu cầu nhập password (chú ý : password sẽ không hiện ra)
-sau khi login thành công sẽ thấy màn hình chào hỏi của ubuntu
+
 2. Tìm hiểu các lệnh cơ bản của ubuntu
 
   Các lệnh cần tìm hiểu:
