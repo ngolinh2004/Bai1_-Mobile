@@ -31,8 +31,15 @@
 
     <img width="733" height="389" alt="{BB1A9BBD-9713-46A2-A956-42ED5E1CF60F}" src="https://github.com/user-attachments/assets/5509f90f-7634-4316-80ce-55c503927ebd" />
 
+  - Ảnh kết quả :
+    
+      <img width="952" height="341" alt="{FB611126-077F-466B-8AD8-5E68AF519088}" src="https://github.com/user-attachments/assets/3b22bcab-8d08-4075-ac99-bf9c876e8c89" />
+
+      <img width="958" height="413" alt="{30907F26-DFA9-48B1-BE7F-7E07C1877D8D}" src="https://github.com/user-attachments/assets/92fbc2bd-f111-460e-bbc3-6b486f27de74" />
+
+
+
 7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình trong thư mục ./nodered, sau đó mới tiến hành sửa settings.js và restart lại container
 
-   <img width="952" height="341" alt="{FB611126-077F-466B-8AD8-5E68AF519088}" src="https://github.com/user-attachments/assets/3b22bcab-8d08-4075-ac99-bf9c876e8c89" />
-
+ 
 
