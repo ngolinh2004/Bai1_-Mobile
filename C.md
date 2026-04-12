@@ -31,7 +31,8 @@
 
     <img width="733" height="389" alt="{BB1A9BBD-9713-46A2-A956-42ED5E1CF60F}" src="https://github.com/user-attachments/assets/5509f90f-7634-4316-80ce-55c503927ebd" />
 
-  - Ảnh kết quả :
+7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình trong thư mục ./nodered, sau đó mới tiến hành sửa settings.js và restart lại container
+   
     + Truy cập : http://192.168.136.128/
       
       <img width="952" height="341" alt="{FB611126-077F-466B-8AD8-5E68AF519088}" src="https://github.com/user-attachments/assets/3b22bcab-8d08-4075-ac99-bf9c876e8c89" />
@@ -45,8 +46,6 @@
      <img width="793" height="311" alt="{F81CBF63-9731-422D-97A7-15234A28692A}" src="https://github.com/user-attachments/assets/970aea8d-f37a-4a7b-938c-33efa32a5da6" />
 
 
-
-7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình trong thư mục ./nodered, sau đó mới tiến hành sửa settings.js và restart lại container
 
  
 
