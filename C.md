@@ -45,6 +45,12 @@
 
      <img width="793" height="311" alt="{F81CBF63-9731-422D-97A7-15234A28692A}" src="https://github.com/user-attachments/assets/970aea8d-f37a-4a7b-938c-33efa32a5da6" />
 
+   +  Truy cập: http://192.168.136.128:1880/api/hello
+        
+     <img width="825" height="284" alt="{DE9C17D1-4FB6-4DC9-98F9-CE0E21AB4504}" src="https://github.com/user-attachments/assets/8262cefe-3caf-41bd-a30d-a63084a5db12" />
+
+
+
 
 
  
