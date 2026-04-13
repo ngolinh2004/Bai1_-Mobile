@@ -18,8 +18,7 @@
    <img width="954" height="391" alt="{7D30ED4D-09E3-45AF-8346-550DD2101AD8}" src="https://github.com/user-attachments/assets/630e4be9-de71-4533-8f9a-5eca9d7b9bce" />
 
 6. Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
-  - Cấu trúc thư mục:
 
-  - Sơ đồ theo góc nhìn của dev:
+   <img width="849" height="288" alt="{A22FD79F-56A6-4854-8444-E901B9CED76F}" src="https://github.com/user-attachments/assets/33e78260-8106-4409-8614-a48c45759a43" />
 
-  - Sơ đồ theo góc nhìn ngược lại:
+  
