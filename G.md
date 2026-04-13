@@ -19,6 +19,7 @@
 
 6. Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
 
-   <img width="849" height="288" alt="{A22FD79F-56A6-4854-8444-E901B9CED76F}" src="https://github.com/user-attachments/assets/33e78260-8106-4409-8614-a48c45759a43" />
+   <img width="862" height="460" alt="{FA485A46-74F3-49B8-BB79-F67A5945AD9B}" src="https://github.com/user-attachments/assets/1d4d0cb6-3ebf-41be-99ca-fdbfc36517fc" />
+
 
   
