@@ -28,6 +28,8 @@
 
 7. Sửa file ./myweb/index.html : thêm code html+js để sử dụng được api đã khai báo proxy_pass (thực ra là sử dụng nodered http_in hoặc sử dụng service myapi)
 
+   <img width="768" height="536" alt="{294E5AA2-4AD0-4B50-A715-04E8FC539B9F}" src="https://github.com/user-attachments/assets/3c7fbcca-ebdf-41d1-ac0d-4d180e3958ee" />
+
    <img width="662" height="387" alt="{89885917-CDFD-4325-9A00-68F1C72586D1}" src="https://github.com/user-attachments/assets/bb9ccf09-8f23-4cf5-b7f9-b834acdc0ba4" />
 
    <img width="960" height="442" alt="{7818BADF-CEB2-4155-8188-B2507D158AAA}" src="https://github.com/user-attachments/assets/dfb14e12-438d-45dd-85c9-d1c91953a857" />
