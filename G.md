@@ -9,8 +9,13 @@
 
 3. Khai báo kết quả convert vào trong file docker-compose.yml
    
-4. Chạy lại docker compose
+    <img width="684" height="395" alt="{3E8E0DA5-EDC8-4150-8F47-AAEF77EFC6B5}" src="https://github.com/user-attachments/assets/fb0e356e-149e-4735-a99a-cde3f01a2408" />
+
    
+4. Chạy lại docker compose
+
+   <img width="700" height="280" alt="{101B6AB9-D847-4E1A-981A-A105D3EF5DD3}" src="https://github.com/user-attachments/assets/5728c692-0d6d-4f20-96c6-fe0549c9a50a" />
+
 5. Public ứng dụng bằng cách thêm 1 router trỏ tới container đang chạy trong docker, dữ liệu sẽ đi qua tunnel, url dạng sub-domain
    
    <img width="948" height="386" alt="{4CCB6EAF-8C3F-4301-88DC-58AF814E583A}" src="https://github.com/user-attachments/assets/3e62d83f-ef19-4a0f-8f7c-49bba61af99c" />
